@@ -6,7 +6,7 @@ resources:
 - argocd-job.yaml
 - tkgs-cluster-class-noaz.yaml
 
-namespace: ns-1
+namespace: shared-services
 
 images:
 - name: whoami6443/argocd-hook

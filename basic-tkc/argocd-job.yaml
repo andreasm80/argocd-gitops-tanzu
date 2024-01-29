@@ -4,6 +4,7 @@ apiVersion: batch/v1
 kind: Job
 metadata:
   name: app-tkc-creation
+  namespace: shared-services
   annotations:
     argocd.argoproj.io/hook: PostSync
     argocd.argoproj.io/hook-delete-policy: BeforeHookCreation
