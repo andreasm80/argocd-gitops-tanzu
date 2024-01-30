@@ -4,6 +4,7 @@ kind: Kustomization
 resources:
 - argocd-app-cm.yaml
 - argocd-job.yaml
+- antrea-config.yaml
 - tkgs-cluster-class-noaz.yaml
 
 namespace: ns-1
