@@ -125,7 +125,6 @@ data:
 
 
             avicredentials:
-              secretName: mysecret
               username: ''
               password: ''
               authtoken:
