@@ -34,10 +34,9 @@ data:
         helm:
           valueFiles:
           - $values/ako-values.yaml
-      - repoURL: 'https://github.com/andreasm80/argocd-gitops-tanzu'
+      - repoURL: 'https://github.com/andreasm80/helm-values'
         targetRevision: HEAD
         ref: values
-        path: basic-tkc
       destination:
         server: ${CLUSTER_IP}
         namespace: avi-system
