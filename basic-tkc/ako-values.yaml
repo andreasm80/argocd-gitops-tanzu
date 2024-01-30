@@ -71,7 +71,17 @@ resources:
     cpu: 200m
     memory: 300Mi
 
-securityContext: {}
+securityContext:
+  runAsNonRoot: true
+  runAsGroup: 1000
+  readOnlyRootFilesystem: false
+  runAsUser: 1000
+  seccompProfile:
+    type: 'RuntimeDefault'
+  allowPrivilegeEscalation: false
+  capabilities:
+    drop:
+    - ALL
 
 podSecurityContext: {}
 
