@@ -91,7 +91,7 @@ data:
               serviceEngineGroupName: domain-c1006:5de34cdc-8b14-46a3-b1c9-b627d574cdf0
               controllerVersion: '22.1.5'
               cloudName: nsx-t
-              controllerHost: ''
+              controllerHost: '172.18.5.51'
               tenantName: admin
 
             nodePortSelector:
@@ -125,8 +125,8 @@ data:
 
 
             avicredentials:
-              username: ''
-              password: ''
+              username: 'testuser'
+              password: 'testpassword'
               authtoken:
               certificateAuthorityData:
 
