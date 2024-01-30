@@ -28,15 +28,15 @@ data:
     spec:
       project: default
       sources:
-      - repoURL: 'https://github.com/andreasm80/argocd-gitops-tanzu.git'
-        targetRevision: main
-        ref: values
       - repoURL: 'projects.registry.vmware.com/ako/helm-charts'
         chart: ako
         targetRevision: 1.11.3
         helm:
           valueFiles:
           - $values/basic-tkc/ako-values.yaml
+      - repoURL: 'https://github.com/andreasm80/argocd-gitops-tanzu.git'
+        targetRevision: HEAD
+        ref: values
       destination:
         server: ${CLUSTER_IP}
         namespace: avi-system
