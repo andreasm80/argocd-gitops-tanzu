@@ -34,12 +34,39 @@ data:
         helm:
           valueFiles:
           - $values/basic-tko/ako-values.yaml
-      - repoURL: 'https://github.com/andreasm80/argocd-gitops-tanzu.git'
+      - repoURL: 'https://github.com/andreasm80/argocd-gitops-tanzu'
         targetRevision: HEAD
         ref: values
       destination:
         server: ${CLUSTER_IP}
         namespace: avi-system
+      syncPolicy:
+        automated:
+          prune: true
+          allowEmpty: true
+        syncOptions:
+          - CreateNamespace=true
+    ---
+    ---
+    apiVersion: argoproj.io/v1alpha1
+    kind: Application
+    metadata:
+      name: tkc-addons-${CLUSTER_NAME}-prometheus
+    spec:
+      project: default
+      sources:
+      - repoURL: 'https://prometheus-community.github.io/helm-charts'
+        chart: prometheus
+        targetRevision: 25.3.1
+        helm:
+          valueFiles:
+          - $values/basic-tko/prom-values.yaml
+      - repoURL: 'https://github.com/andreasm80/argocd-gitops-tanzu'
+        targetRevision: HEAD
+        ref: values
+      destination:
+        server: ${CLUSTER_IP}
+        namespace: prometheus
       syncPolicy:
         automated:
           prune: true
