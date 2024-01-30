@@ -27,7 +27,7 @@ items:
           Multicast: false
           Multicluster: false
           NetworkPolicyStats: true
-          NodePortLocal: false
+          NodePortLocal: true
           SecondaryNetwork: false
           ServiceExternalIP: false
           TopologyAwareHints: false
