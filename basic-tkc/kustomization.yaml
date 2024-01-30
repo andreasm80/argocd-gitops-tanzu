@@ -4,6 +4,7 @@ kind: Kustomization
 resources:
 - argocd-app-cm.yaml
 - argocd-job.yaml
+- argocd-ako-repo.yaml
 - antrea-config.yaml
 - tkgs-cluster-class-noaz.yaml
 
