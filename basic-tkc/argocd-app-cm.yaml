@@ -24,13 +24,19 @@ data:
     apiVersion: argoproj.io/v1alpha1
     kind: Application
     metadata:
-      name: tkc-addons-${CLUSTER_NAME}-ako-2
+      name: tkc-addons-${CLUSTER_NAME}-ako
     spec:
       project: default
       sources:
       - repoURL: 'https://github.com/andreasm80/argocd-gitops-tanzu.git'
         targetRevision: main
         ref: values
+      - repoURL: 'projects.registry.vmware.com/ako/helm-charts'
+        chart: ako
+        targetRevision: 1.11.3
+        helm:
+          valueFiles:
+          - $values/basic-tkc/ako-values.yaml
       destination:
         server: ${CLUSTER_IP}
         namespace: avi-system
