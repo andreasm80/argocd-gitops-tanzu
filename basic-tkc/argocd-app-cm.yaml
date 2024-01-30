@@ -31,10 +31,11 @@ data:
       - repoURL: 'projects.registry.vmware.com/ako/helm-charts'
         chart: ako
         targetRevision: 1.11.3
+        path: basic-tkc
         helm:
           valueFiles:
-          - $values/basic-tkc/ako-values.yaml
-      - repoURL: 'https://github.com/andreasm80/argocd-gitops-tanzu.git'
+          - $values/ako-values.yaml
+      - repoURL: 'https://github.com/andreasm80/argocd-gitops-tanzu'
         targetRevision: HEAD
         ref: values
       destination:
