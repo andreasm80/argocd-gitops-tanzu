@@ -125,8 +125,8 @@ data:
 
 
             avicredentials:
-              username: ''
-              password: ''
+              username: 'testuser'
+              password: 'testpassword'
               authtoken:
               certificateAuthorityData:
 
