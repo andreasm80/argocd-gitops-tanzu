@@ -24,16 +24,16 @@ data:
     apiVersion: argoproj.io/v1alpha1
     kind: Application
     metadata:
-      name: tkc-addons-${CLUSTER_NAME}-prometheus
+      name: tkc-addons-${CLUSTER_NAME}-ako-2
     spec:
       project: default
       sources:
-      - repoURL: 'projects.registry.vmware.com/ako/helm-charts'
-        chart: ako
-        targetRevision: 1.11.3
-        helm:
-          valueFiles:
-          - $values/basic-tko/ako-values.yaml
+#      - repoURL: 'projects.registry.vmware.com/ako/helm-charts'
+#        chart: ako
+#        targetRevision: 1.11.3
+#        helm:
+#          valueFiles:
+#          - $values/basic-tko/ako-values.yaml
       - repoURL: 'https://github.com/andreasm80/argocd-gitops-tanzu.git'
         targetRevision: main
         ref: values
