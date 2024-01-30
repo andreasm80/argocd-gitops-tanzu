@@ -28,7 +28,7 @@ data:
     spec:
       project: default
       sources:
-      - repoURL: "projects.registry.vmware.com/ako/helm-charts/ako"
+      - repoURL: "projects.registry.vmware.com/ako/helm-charts/"
         chart: ako
         targetRevision: 1.11.3
         helm:
