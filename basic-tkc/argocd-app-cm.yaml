@@ -31,7 +31,6 @@ data:
       - repoURL: 'projects.registry.vmware.com/ako/helm-charts'
         chart: ako
         targetRevision: 1.11.3
-#        path: basic-tkc
         helm:
           valueFiles:
           - $values/basic-tko/ako-values.yaml
