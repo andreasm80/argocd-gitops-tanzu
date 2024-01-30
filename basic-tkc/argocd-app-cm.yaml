@@ -33,10 +33,11 @@ data:
         targetRevision: 1.11.3
         helm:
           valueFiles:
-          - $values/basic-tkc/ako-values.yaml
-      - repoURL: 'https://github.com/andreasm80/argocd-gitops-tanzu.git'
+          - $values/ako-values.yaml
+      - repoURL: 'https://github.com/andreasm80/argocd-gitops-tanzu'
         targetRevision: HEAD
         ref: values
+        path: basic-tkc
       destination:
         server: ${CLUSTER_IP}
         namespace: avi-system
