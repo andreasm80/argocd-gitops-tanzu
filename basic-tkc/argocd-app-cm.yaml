@@ -33,7 +33,8 @@ data:
         targetRevision: 1.11.3
         helm:
           valueFiles:
-          - $values/basic-tkc/ako-values.yaml
+          - $values/ako-values.yaml
+        path: basic-tkc
       - repoURL: "https://github.com/andreasm80/argocd-gitops-tanzu.git"
         targetRevision: HEAD
         ref: values
