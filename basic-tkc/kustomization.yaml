@@ -8,11 +8,6 @@ resources:
 - argocd-nfs-repo.yaml
 - antrea-config.yaml
 - tkgs-cluster-class-noaz.yaml
-- ako-secret-sa.yaml
-- ako-secret-role.yaml
-- ako-secret-rolebinding.yaml
-- tkc-pv-pvc.yaml
-- ako-inject-secret.yaml
 
 namespace: ns-1
 
