@@ -2,9 +2,9 @@ apiVersion: v1
 kind: PersistentVolume
 metadata:
   annotations:
+    argocd.argoproj.io/sync-wave: "2"
     pv.kubernetes.io/provisioned-by: cluster.local/nfs-subdir-external-provisioner
   name: pvc-95c59675-7085-45cb-8a84-0364e7a7fe70
-  argocd.argoproj.io/sync-wave: "4"
 spec:
   accessModes:
   - ReadWriteMany
