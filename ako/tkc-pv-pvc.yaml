@@ -24,8 +24,6 @@ spec:
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  annotations:
-    argocd.argoproj.io/sync-wave: "1"
   name: tanzu-pv-claim
   namespace: avi-system
 spec:
