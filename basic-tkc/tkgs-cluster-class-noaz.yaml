@@ -21,6 +21,8 @@ spec:
           name: node-pool-1
           replicas: 1
     variables:
+      - name: ntp
+        value: 10.100.1.7
       - name: vmClass
         value: best-effort-small
       - name: storageClass
