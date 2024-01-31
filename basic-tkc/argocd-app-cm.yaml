@@ -19,7 +19,35 @@ data:
         server: ${CLUSTER_IP}
       syncPolicy:
         automated:
-          prune: true  
+          prune: true
+    ---
+    apiVersion: argoproj.io/v1alpha1
+    kind: Application
+    metadata:
+      name: tkc-addons-${CLUSTER_NAME}-nfs
+    spec:
+      project: default
+      source:
+        repoURL: 'kubernetes-sigs.github.io/nfs-subdir-external-provisioner'
+        chart: nfs-subdir-external-provisioner
+        targetRevision: 4.0.18
+        helm:
+          parameters:
+          - name: 'nfs.server'
+            value: '172.18.3.23'
+          - name: 'nfs.path'
+            value: '/mnt/Pool1/Kubernetes/tanzu'
+          - name: 'storageClass.reclaimPolicy'
+            value: 'Retain'
+      destination:
+        server: ${CLUSTER_IP}
+        namespace: nfs-storage
+      syncPolicy:
+        automated:
+          prune: true
+          allowEmpty: true
+        syncOptions:
+          - CreateNamespace=true
     ---
     apiVersion: argoproj.io/v1alpha1
     kind: Application
@@ -125,8 +153,8 @@ data:
 
 
             avicredentials:
-              username: 'testuser'
-              password: 'testpassword'
+              username: ''
+              password: ''
               authtoken:
               certificateAuthorityData:
 
