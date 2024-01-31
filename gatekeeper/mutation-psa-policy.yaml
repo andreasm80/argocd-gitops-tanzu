@@ -1,8 +1,9 @@
 apiVersion: mutations.gatekeeper.sh/v1
 kind: AssignMetadata
 metadata:
+  annotations:
+    argocd.argoproj.io/sync-wave: "2"
   name: fix-psa-value
-  argocd.argoproj.io/sync-wave: "2"
 spec:
   location: metadata.labels."pod-security.kubernetes.io/enforce" 
   match:
