@@ -1,45 +1,4 @@
 ---
-apiVersion: cni.tanzu.vmware.com/v1alpha1
-kind: AntreaConfig
-metadata:
-  name: tkc-cluster-1-antrea-package
-  namespace: ns-1
-spec:
-  antrea:
-    config:
-      antreaProxy:
-        proxyLoadBalancerIPs: true
-      defaultMTU: ""
-      disableTXChecksumOffload: false
-      disableUdpTunnelOffload: false
-      dnsServerOverride: ""
-      enableBridgingMode: false
-      enableUsageReporting: false
-      featureGates:
-        AntreaIPAM: false
-        AntreaPolicy: true
-        AntreaProxy: true
-        AntreaTraceflow: true
-        Egress: true
-        EndpointSlice: true
-        FlowExporter: false
-        Multicast: false
-        Multicluster: false
-        NetworkPolicyStats: true
-        NodePortLocal: true
-        SecondaryNetwork: false
-        ServiceExternalIP: false
-        TopologyAwareHints: false
-        TrafficControl: false
-      flowExporter:
-        activeFlowTimeout: 60s
-        collectorAddress: flow-aggregator/flow-aggregator:4739:tls
-      noSNAT: false
-      tlsCipherSuites: TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256,TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256,TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384,TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384,TLS_RSA_WITH_AES_256_GCM_SHA384
-      trafficEncapMode: encap
-      tunnelCsum: false
-      tunnelPort: 0
----
 apiVersion: cluster.x-k8s.io/v1beta1
 kind: Cluster
 metadata:
@@ -57,11 +16,17 @@ spec:
     version: v1.26.5---vmware.2-fips.1-tkg.1
     controlPlane:
       replicas: 1
+      metadata:
+        annotations:
+          run.tanzu.vmware.com/resolve-os-image: os-name=ubuntu
     workers:
       machineDeployments:
         - class: node-pool
           name: node-pool-1
           replicas: 1
+          metadata:
+            annotations:
+              run.tanzu.vmware.com/resolve-os-image: os-name=ubuntu
     variables:
       - name: vmClass
         value: best-effort-small
