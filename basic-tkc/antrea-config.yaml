@@ -40,5 +40,3 @@ spec:
       trafficEncapMode: encap
       tunnelCsum: false
       tunnelPort: 0
-status:
-  secretRef: tkc-cluster-1-antrea-data-values
