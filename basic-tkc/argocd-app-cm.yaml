@@ -8,6 +8,8 @@ data:
     apiVersion: argoproj.io/v1alpha1
     kind: Application
     metadata:
+      annotations:
+        argocd.argoproj.io/sync-wave: "1"
       name: tkc-addons-${CLUSTER_NAME}-gatekeeper
     spec:
       project: default
@@ -24,6 +26,8 @@ data:
     apiVersion: argoproj.io/v1alpha1
     kind: Application
     metadata:
+      annotations:
+        argocd.argoproj.io/sync-wave: "2"
       name: tkc-addons-${CLUSTER_NAME}-nfs
     spec:
       project: default
@@ -64,6 +68,8 @@ data:
     apiVersion: argoproj.io/v1alpha1
     kind: Application
     metadata:
+      annotations:
+        argocd.argoproj.io/sync-wave: "4"
       name: tkc-addons-${CLUSTER_NAME}-ako
     spec:
       project: default
