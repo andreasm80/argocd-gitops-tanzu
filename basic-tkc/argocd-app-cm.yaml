@@ -39,6 +39,18 @@ data:
             value: '/mnt/Pool1/Kubernetes/tanzu'
           - name: 'storageClass.reclaimPolicy'
             value: 'Retain'
+          values: |
+            securityContext:
+              runAsNonRoot: true
+              runAsGroup: 1000
+              readOnlyRootFilesystem: false
+              runAsUser: 1000
+              seccompProfile:
+                type: 'RuntimeDefault'
+              allowPrivilegeEscalation: false
+              capabilities:
+                drop:
+                - ALL
       destination:
         server: ${CLUSTER_IP}
         namespace: nfs-storage
@@ -104,6 +116,7 @@ data:
               bgpPeerLabels: []
               vipNetworkList:
                 - networkName: 'vip-l7'
+                  cidr: '10.141.1.0/24'
             L7Settings:
               defaultIngController: 'true'
               noPGForSNI: false
