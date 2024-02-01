@@ -1,0 +1,15 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+- argocd-app-cm.yaml
+- argocd-job.yaml
+- argocd-ako-repo.yaml
+- argocd-nfs-repo.yaml
+- tkgs-cluster-class-noaz.yaml
+
+namespace: ns-1
+
+images:
+- name: whoami6443/argocd-hook
+  newName: registry.guzware.net/whoami/argocd-hook
