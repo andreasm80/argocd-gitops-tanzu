@@ -21,27 +21,12 @@ spec:
           name: node-pool-1
           replicas: 1
     variables:
-      - name: ntp
-        value: 10.100.1.7
       - name: vmClass
         value: best-effort-small
       - name: storageClass
         value: vsan-default-storage-policy
       - name: defaultStorageClass
         value: vsan-default-storage-policy
-      - name: clusterEncryptionConfigYaml
-        value: |
-          apiVersion: apiserver.config.k8s.io/v1
-          kind: EncryptionConfiguration
-          resources:
-            - resources:
-                - secrets
-              providers:
-                - aescbc:
-                    keys:
-                      - name: key1
-                        secret: QiMgJGYXudtljldVyl+AnXQQlk7r9iUXBfVKqdEfKm8=
-                - identity: {}
 # ADDITIONAL VALUES
       - name: nodePoolVolumes
         value:

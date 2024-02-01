@@ -6,6 +6,7 @@ resources:
 - argocd-job.yaml
 - argocd-ako-repo.yaml
 - argocd-nfs-repo.yaml
+- antrea-config.yaml
 - tkgs-cluster-class-noaz.yaml
 
 namespace: ns-1
