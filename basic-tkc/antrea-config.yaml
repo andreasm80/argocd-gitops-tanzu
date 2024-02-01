@@ -2,7 +2,7 @@ apiVersion: cni.tanzu.vmware.com/v1alpha1
 kind: AntreaConfig
 metadata:
   annotations:
-    argocd.argoproj.io/sync-wave: "1"
+    argocd.argoproj.io/sync-wave: "-3"
   name: tkc-cluster-1-antrea-package
   namespace: ns-1
 spec:
@@ -23,7 +23,7 @@ spec:
         AntreaTraceflow: true
         Egress: true
         EndpointSlice: true
-        FlowExporter: true
+        FlowExporter: false
         Multicast: false
         Multicluster: false
         NetworkPolicyStats: true
