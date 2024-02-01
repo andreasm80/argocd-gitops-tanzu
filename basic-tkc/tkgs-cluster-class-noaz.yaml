@@ -29,6 +29,19 @@ spec:
         value: vsan-default-storage-policy
       - name: defaultStorageClass
         value: vsan-default-storage-policy
+      - name: clusterEncryptionConfigYaml
+        value: |
+          apiVersion: apiserver.config.k8s.io/v1
+          kind: EncryptionConfiguration
+          resources:
+            - resources:
+                - secrets
+              providers:
+                - aescbc:
+                    keys:
+                      - name: key1
+                        secret: QiMgJGYXudtljldVyl+AnXQQlk7r9iUXBfVKqdEfKm8=
+                - identity: {}
 # ADDITIONAL VALUES
       - name: nodePoolVolumes
         value:
