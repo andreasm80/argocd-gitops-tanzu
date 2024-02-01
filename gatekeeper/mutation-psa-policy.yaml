@@ -8,8 +8,6 @@ spec:
   location: metadata.labels."pod-security.kubernetes.io/enforce" 
   match:
     excludedNamespaces:
-    - nfs-storage
-    - avi-system
     - kube-*
     - vmware-*
     - tanzu-*
